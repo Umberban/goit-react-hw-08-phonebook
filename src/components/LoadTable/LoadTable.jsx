@@ -5,7 +5,7 @@ export const LoadTable = ()=>{
     return(
        <div className={css.colorRing}> 
        <ColorRing
-       class='colorRing'
+       className='colorRing'
        visible={true}
        height="80"
        width="80"

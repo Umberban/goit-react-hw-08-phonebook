@@ -1,0 +1,14 @@
+.title {
+    display: inline-block;
+    padding: 26px;
+    font-family: 'Yusei Magic', sans-serif;
+    font-weight: 700;
+    font-size:  25px;
+    text-transform: uppercase;
+    color: white;
+    transition: color linear 250ms;
+
+  }
+  .title:hover{
+    color:black;
+  }

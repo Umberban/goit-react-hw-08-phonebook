@@ -1,0 +1,64 @@
+.form {
+    margin: auto;
+    width: 400px;
+    border: 4px dotted rgb(147, 240, 194);
+    padding: 35px;
+    border-radius: 6px;
+  }
+  
+  .label {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Yusei Magic', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500px;
+    font-size: 19px;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .input {
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 4px;
+    font-size: 18px;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    transition: background-color linear 250ms, border linear 250ms;
+  
+    border: 2px solid rgb(147, 240, 194);
+    border-radius: 8px;
+    cursor: pointer;
+  
+  }
+  
+  .input:hover, .input:focus {
+    border: 2px solid #D6BCFA;
+    background-color: transparent;
+  }
+  
+  .btn {
+    font-family: 'Yusei Magic', sans-serif;
+    display: block;
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color:rgb(147, 240, 194);
+    color: white;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background-color linear 250ms;
+  }
+  
+  
+  .btn:hover, .btn:focus {
+    background-color:#D6BCFA;
+    color: white;
+  }

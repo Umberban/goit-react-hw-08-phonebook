@@ -10,7 +10,7 @@ export const Filter =()=>{
       };
     return(
         <>
-<label className={css.label}  for='filter'>
+<label className={css.label}>
    Search by Name
     </label>
 <input

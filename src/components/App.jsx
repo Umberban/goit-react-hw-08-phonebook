@@ -1,32 +1,55 @@
-import {ContactForm} from "./ContactForm/ContactForm"
-import { ContactList } from "./ContactList/ContactList";
-import { Filter } from "./Filter/Filter";
-import React from 'react';
-import { ToastContainer } from 'react-toastify';
+import { lazy} from 'react';
+import { Skeleton} from '@chakra-ui/react'
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useAuth } from 'hooks/authHook';
+import { Backdrop } from './Backdrop/Backdrop';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/api';
-import { useDispatch, useSelector } from 'react-redux';
-import { getError, getIsLoading } from 'redux/selector';
-import { LoadTable } from "./LoadTable/LoadTable";
+import { useDispatch} from 'react-redux';
+import { refreshUser } from 'redux/auth';
+import { PrivateRoute } from './PrivatRoute';
+import { ControledRoute } from './ControledRoute';
+
+const HomePage = lazy(() => import ('pages/Home/Home'));
+const RegisterPage = lazy(() => import('pages/Register/Register'));
+const LoginPage = lazy(() => import('pages/Login/Login'));
+const ContactsPage = lazy(() => import('pages/Contacts/Contacts'));
+
+
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
+  return isRefreshing ? (
+    <Skeleton startColor='pink.500' endColor='orange.500' height='20px' />
+  ) : (
+      <Routes>
+        <Route path="/" element={<Backdrop />}>
+          <Route index element={<HomePage />} />
+          <Route
+          path="/register"
+          element={
+            <ControledRoute redirectTo="/contacts" component={<RegisterPage />} />
+          }
+        />
+          <Route
+          path="/login"
+          element={
+            <ControledRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+          <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
+        </Route>
+        <Route path="*" element={<Navigate to="/" />}/>
+      </Routes>
 
-    return (
-      <>
-      <h1>Phonebook</h1>
-    <ContactForm/>
-    <Filter/>
-    {isLoading && !error && <LoadTable></LoadTable>}
-      {error && <b>{error}</b>}
-    <ContactList/>
-    <ToastContainer autoClose={1500} />
-      </>
-    );
-  };
+  );
+};

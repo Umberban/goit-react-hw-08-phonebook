@@ -1,0 +1,32 @@
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  
+  .emailText {
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: white;
+  }
+  
+  .btn {
+      display: block;
+      height: 35px;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      background-color:rgb(168, 224, 243);
+      color: white;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: background-color linear 333ms,color linear 333ms;
+  }
+  
+  
+  .btn:hover, .btn:focus {
+      background-color: white;
+      color:#D6BCFA;
+  }

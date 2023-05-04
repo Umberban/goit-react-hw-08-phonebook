@@ -1,16 +1,23 @@
 .list{
+    font-family: 'Yusei Magic', sans-serif;
     list-style: none;
+    margin-left: auto;
+    margin-right: auto;
 }
 .item{
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     gap:25px;
     align-items: center;
     width: 350px;
     justify-content:space-between;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 .btn{
-    height: 25px;
-    width: 25px;
+    height: 32px;
+    width: 32px;
     text-align: center;
     border: 0.5px solid black ;
     border-radius: 50px;
