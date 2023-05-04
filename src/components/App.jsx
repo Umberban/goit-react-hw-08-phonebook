@@ -24,7 +24,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Skeleton startColor='purple.500' endColor='grenn.500' height='20px' />
+    <Skeleton startColor='purple.500' endColor='green.500' height='20px' />
   ) : (
       <Routes>
         <Route path="/" element={<Backdrop />}>
