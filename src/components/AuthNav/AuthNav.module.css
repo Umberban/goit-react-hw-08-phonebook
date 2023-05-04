@@ -9,6 +9,6 @@
     transition: color linear 250ms;
     /* background-color:teal ; */
   }
-  .auth:hover .auth:focus{
+  .auth:hover, .auth:focus{
     color:black;
   }
